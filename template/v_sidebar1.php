@@ -1,7 +1,10 @@
-   
-   
+<?php
+if( !isset($_SESSION["level"]) ) {
+	header("Location: login.php");
+	exit;
+}
 
-        
+?>
    <!-- Page Wrapper -->
    <div id="wrapper">
 
@@ -21,7 +24,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="index2.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -79,11 +82,11 @@
 
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="admin.php">
             <i class="fas fa-fw fa-user"></i>
             <span>Admin</span></a>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">

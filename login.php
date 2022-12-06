@@ -14,20 +14,30 @@ if( isset($_POST["login"]) ) {
 	$password = $_POST["password"];
 
 	$result = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '$username'");
-
+    // $data = mysqli_fetch_assoc($result);
 	// cek username
 	if( mysqli_num_rows($result) === 1 ) {
 
 		// cek password
 		$row = mysqli_fetch_assoc($result);
-		if( password_verify($password, $row["password"]) ) {
+		if( $row["level"]=='Admin')  {
 			// set session
-			$_SESSION["login"] = true;
+			// $_SESSION["login"] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION["level"] = 'Admin';
 
 			header("Location: index.php");
 			exit;
-		}
-	}
+		}else if($row["level"]=='User'){
+            // set session
+    // $_SESSION["login"] = true;
+    $_SESSION['username'] = $username;
+    $_SESSION["level"] = 'User';
+
+    header("Location: index2.php");
+     }
+        
+    }
 
 	$error = true;
 

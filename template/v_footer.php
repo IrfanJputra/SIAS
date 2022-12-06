@@ -1,4 +1,13 @@
-            <!-- Footer -->
+          <?php
+          if( !isset($_SESSION["level"]) ) {
+            header("Location: login.php");
+            exit;
+        }
+        
+        ?>
+          
+          
+          <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">

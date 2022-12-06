@@ -14,7 +14,7 @@ $data = mysqli_query($conn, "SELECT * FROM tb_data");
 $jumlah = mysqli_num_rows($data);
 ?>
 
-<?php require_once 'template/v_sidebar.php';?>
+<?php require_once 'template/v_sidebar1.php';?>
 <?php require_once 'template/v_header.php'; ?>
 <body id="page-top">
 

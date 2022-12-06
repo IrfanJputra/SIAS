@@ -1,3 +1,11 @@
+<?php
+          if( !isset($_SESSION["level"]) ) {
+            header("Location: login.php");
+            exit;
+        }
+        
+        ?>
+          
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +33,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 
 </head>  
-  
+
   <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -208,7 +216,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $row["username"]; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["level"]; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>

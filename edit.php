@@ -1,13 +1,17 @@
 <?php
 session_start();
 
-if( !isset($_SESSION["login"]) ) {
+if( !isset($_SESSION["level"]) ) {
 	header("Location: login.php");
 	exit;
 }
 
 ?>
-<?php include 'template/v_sidebar.php'; ?>
+<?php 
+$level = $_SESSION['level'];
+if($level == 'Admin') { include "template/v_sidebar.php"; }
+if($level == 'User') { include "template/v_sidebar1.php"; }
+?>
 <?php include 'template/v_header.php'; ?>
 <?php
 include 'database/konfig.php';
