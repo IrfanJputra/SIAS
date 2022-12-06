@@ -34,6 +34,7 @@ $array = mysqli_fetch_assoc($query);
                         <th>No</th>
                         <th>Username</th>
                         <th>Password</th>
+                        <th>Level</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -58,6 +59,7 @@ $array = mysqli_fetch_assoc($query);
                 <td><?php echo $no++; ?></td>
                 <td><?php echo $baris['username']; ?>&nbsp;<span class="badge badge-danger"></span></td>
                 <td><?php echo $baris['password']; ?></td>
+                <td><?php echo $baris['level']; ?></td>
                 <td>
                     <!-- <a class="btn btn-primary" href="edit_admin.php">Ubah</a>  -->
                     <a class="btn btn-danger" href="hapus_admin.php?id=<?= $baris["id_admin"]; ?>" onclick="return confirm('yakin?');">Hapus</a>

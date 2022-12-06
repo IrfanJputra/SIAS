@@ -1,6 +1,6 @@
 <?php
 //Koneksi ke database
-$conn = mysqli_connect("localhost:3306","root","","db_mutasi");
+$conn = mysqli_connect("localhost:3306","root","mysql","db_mutasi");
 
 
 //tambah data
@@ -211,6 +211,7 @@ function registrasi($data) {
 	$username = strtolower(stripslashes($data["username"]));
 	$password = mysqli_real_escape_string($conn, $data["password"]);
 	$password2 = mysqli_real_escape_string($conn, $data["password2"]);
+	$level     = htmlspecialchars($data["level"]);
 
 	// cek username sudah ada atau belum
 	$result = mysqli_query($conn, "SELECT username FROM tb_admin WHERE username = '$username'");
@@ -235,7 +236,8 @@ function registrasi($data) {
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	// tambahkan userbaru ke database
-	mysqli_query($conn, "INSERT INTO tb_admin VALUES(NULL, '$username', '$password')");
+	$query = "INSERT INTO tb_admin VALUES (NULL, '$username', '$password', '$level')";
+	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);
 

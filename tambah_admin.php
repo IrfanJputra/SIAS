@@ -14,6 +14,7 @@ require 'database/konfig.php';
 if( isset($_POST["register"]) ) {
 
 	if( registrasi($_POST) > 0 ) {
+    // var_dump($_POST);
 		echo "<script>
 				alert('user baru berhasil ditambahkan!');
                 document.location.href = 'admin.php';
@@ -77,8 +78,14 @@ if( isset($_POST["register"]) ) {
                 <label>Konfirmasi Password<span class="text-danger">*</span></label>
                 <input type="password" name="password2" class="form-control" placeholder="Masukkan Konfirmasi Password...">
               </div>
-
-
+            <div class="mb-3">
+            <label>Level<span class="text-danger"></span></label>
+              <select name="level" class="form-control" value="level">
+              <option disabled selected>Pilih-level</option>
+              <option value="Admin">Admin</option>
+              <option value="User">User</option>
+            </select>
+            </div>
               <div class="col-md-12">
                <button type="submit" name="register" class="btn btn-primary float-end">Daftar</button>
              </div>

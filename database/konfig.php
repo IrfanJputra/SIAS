@@ -2,7 +2,7 @@
 $servername = "localhost:3306";
 $database = "db_mutasi";
 $username = "root";
-$password = "";
+$password = "mysql";
  
 // untuk tulisan bercetak tebal silakan sesuaikan dengan detail database Anda
 // membuat koneksi
